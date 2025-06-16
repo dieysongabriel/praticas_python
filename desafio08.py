@@ -1,4 +1,8 @@
 
+""" 
+Enunciado:
+Dada uma matriz quadrada de inteiros, calcule a soma da diagonal secundária (aquela que vai do canto superior direito ao inferior esquerdo).
+"""
 
 my_matriz = [
     [1, 2, 3],

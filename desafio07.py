@@ -1,5 +1,10 @@
 
 
+""" 
+Enunciado:
+Crie uma função que verifica se uma string é um palíndromo, ignorando espaços, acentos e pontuação. A comparação deve ser feita sem distinção entre maiúsculas e minúsculas.
+"""
+
 import unicodedata
 import re
 
@@ -19,7 +24,7 @@ def limpar_texto(texto):
 def eh_palindromo(str):
     strP = limpar_texto(str)
 
-    strInvertida = str[::-1]
+    strInvertida = strP[::-1]
 
     if strP == strInvertida:
         return 'É palíndromo';
