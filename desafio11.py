@@ -18,7 +18,7 @@ def cadastrando_produtos():
 
     while True:
         nome = input('Produto: ').strip()
-        if nome.lower() == 'Sair':
+        if nome.lower() == 'sair':
             break
 
         preco = input('Preço: ').replace(",", ".").strip()
@@ -39,7 +39,7 @@ def cadastrando_produtos():
         print(f'- {x}: R$ {produtos[x]:.2f}')
     
     total = 0
-    for valor in produtos:
+    for valor in produtos.values():
         total += valor
 
     print(f'Total geral: R$ {round(total, 2)}')
