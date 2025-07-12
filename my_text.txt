@@ -1,9 +1,0 @@
-
-
-linguages de programação:
-
-1 - JavaScript
-2 - Python
-3 - Java
-4 - Go
-5 - Ruby

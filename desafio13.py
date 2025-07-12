@@ -22,7 +22,7 @@ def validador(senha):
         return 'Digite uma senha com 8 ou mais caracteres'
     maiusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     minusculas = 'abcdefghijklmnopqrstuvwxyz'
-    caracteres = '!@#$%&*'
+    caracteres = '!@#$%&*_'
     numeros = '0123456789'
 
     tem_maiuscula = 0
@@ -40,9 +40,12 @@ def validador(senha):
         elif i in numeros:
             tem_numero += 1
     
-    if tem_maiuscula >= 1 and  tem_caractere >= 1 and tem_minuscula >= 1 and tem_numero >= 1:
+    if tem_maiuscula >= 1 and  tem_caractere >= 1 and tem_minuscula >= 1 and tem_numero >= 1 and len(senha) >= 8:
         return 'A senha é valida'
     else:
         return 'A senha é invalida'
 
-print(validador('naotemsenhA@1!'));
+print(validador('teste!123'));
+
+#hUEQ5_zb6<8m
+#teste!123
