@@ -26,12 +26,16 @@ class ContaBancaria:
         self.transacoes = []
 
     def depositar(self, valor):
+        if valor <= 0:
+            raise ValueError('Valor de depósito inválido')
         self.saldo += valor
         t = Transacao('Depósito', valor, self.cpf)
         self.transacoes.append(t)
         return t
     
     def sacar(self, valor):
+        if valor <= 0:
+            raise ValueError('Valor de saque inválido')
         if valor > self.saldo:
             raise ValueError('Saldo insuficiente')
         self.saldo -= valor
@@ -89,9 +93,10 @@ class Banco:
                     self.contas.append(conta)
 
     def salvar_transacao(self, transacao):
+        arquivo_vazio = not os.path.exists(self.arquivo_transacoes) or os.path.getsize(self.arquivo_transacoes) == 0
         with open(self.arquivo_transacoes, 'a', newline='') as file:
             writer = csv.writer(file)
-            if os.path.getsize(self.arquivo_transacoes) == 0:
+            if arquivo_vazio:
                 writer.writerow(['CPF', 'Tipo', 'Valor', 'DataHora'])
             writer.writerow(transacao.to_csv_row())
 
@@ -110,7 +115,10 @@ while True:
 
     if op == '1':
         nome = input('Nome: ')
-        cpf = input('CPF: ')
+        cpf = input('CPF: ').strip()
+        if not cpf.isdigit() or len(cpf) != 11:
+            print('CPF inválido')
+            continue
         num = input('Número da conta: ')
         if banco.buscar_conta_por_cpf(cpf):
             print('Já existe conta com esse CPF!')
